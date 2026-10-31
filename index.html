@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Svarna Dipa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Huruf: Aptos Narrow bila terpasang (Office 365), cadangan Archivo Narrow; merek raksasa memakai Archivo tebal -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* Desain Svarna Dipa (disetujui Joe 27 Okt 2026, purwarupa versi 32): warna gelap dashboard GIO,
+   huruf Aptos Narrow besar kapital, kartu rata tengah, merek SVARNA DIPA raksasa ala kaki bugatti.com. */
+:root {
+  --bg: #11171d; --kartu: #18212a; --kartu-2: #1d2833; --teks: #e6ecf1; --redup: #9aa8b5; --garis: #2a3642;
+  --aksen: #6fb3d2; --aksen-tua: #2b6382; --navy: #11171d;
+  --hijau: #5cc28d; --kuning: #e0a84a; --merah: #f08a80; --abu: #9aa8b5;
+  --latar-hijau: #1c3428; --latar-kuning: #3a2f1c; --latar-merah: #3a2220; --latar-abu: #1d2833;
+  --bayang: 0 1px 2px rgba(0, 0, 0, .3); --bayang-naik: 0 8px 24px rgba(0, 0, 0, .35);
+  --f: "Aptos Narrow", "Archivo Narrow", "Arial Narrow", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }   /* layar masuk & isi disembunyikan lewat atribut hidden */
+/* Ukuran bawaan 75% di layar laptop/komputer (arahan Joe 27 Okt 2026); HP tetap 100% supaya terbaca */
+:root { --skala: 1; }
+@media (min-width: 700px) { :root { --skala: .75; } html { zoom: .75; } }
+body { margin: 0; background: var(--bg); color: var(--teks); font: 19px/1.45 var(--f); text-transform: uppercase; letter-spacing: .03em; -webkit-font-smoothing: antialiased; }
+input, button, select { text-transform: uppercase; }
+input::placeholder { text-transform: uppercase; }
+.bungkus { max-width: 1360px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-bottom: 96px; }
+h1 { font-size: clamp(34px, 4.4vw, 58px); margin: 0; line-height: 1.05; letter-spacing: .04em; font-weight: 600; text-wrap: balance; }
+h2 { font-size: clamp(24px, 2.4vw, 32px); margin: 36px 0 4px; letter-spacing: .04em; font-weight: 600; }
+.redup { color: var(--redup); font-size: 16px; }
+.ikon { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -.15em; flex: none; }
+button { font: inherit; font-size: 16px; font-weight: 600; letter-spacing: .08em; padding: 12px 22px; border: 1px solid var(--teks); border-radius: 999px; background: transparent; color: var(--teks); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+button:hover { background: var(--teks); color: var(--bg); }
+button:disabled { opacity: .4; cursor: default; background: transparent; color: var(--teks); }
+button.tipis { border-color: rgba(255, 255, 255, .25); padding: 10px 18px; font-size: 15px; }
+button.tipis:hover { border-color: var(--teks); background: rgba(255, 255, 255, .06); color: var(--teks); }
+:focus-visible { outline: 1px solid var(--aksen); outline-offset: 3px; }
+
+/* Merek raksasa: SVG selebar layar, huruf berbintik, terlihat hanya di sekitar mouse (cara kerja kaki bugatti.com) */
+@property --sorot-x { syntax: "<percentage>"; inherits: true; initial-value: 0%; }
+.merek-raksasa { width: 100%; color: var(--teks); user-select: none;
+  -webkit-mask-image: radial-gradient(circle at var(--sorot-x) 50%, #000 0%, transparent 60%);
+  mask-image: radial-gradient(circle at var(--sorot-x) 50%, #000 0%, transparent 60%); }
+.merek-raksasa svg { display: block; width: 100%; height: auto; opacity: .4; }
+.merek-raksasa text { font-family: "Archivo", "Arial Black", sans-serif; font-weight: 800; }
+@keyframes sorot-jalan { from { --sorot-x: 0%; } to { --sorot-x: 100%; } }
+@media (hover: none) { .merek-raksasa { animation: sorot-jalan 7s ease-in-out infinite alternate; } }
+@media (prefers-reduced-motion: reduce) { .merek-raksasa { animation: none; --sorot-x: 50%; } }
+.atas-merek { border-bottom: 1px solid var(--garis); }
+
+/* Layar masuk */
+body.layar-masuk { min-height: calc(100vh / var(--skala)); }
+#masuk { min-height: calc(100vh / var(--skala)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5vh; padding-block: 4vh 6vh; overflow: hidden; text-align: center; }
+#masuk .isi-masuk { width: min(520px, 100%); padding-inline: 16px; display: flex; flex-direction: column; gap: 14px; }
+#masuk input { width: 100%; height: 64px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); background: var(--aksen-tua); color: #fff;
+  font: 600 22px var(--f); letter-spacing: .04em; text-align: center; padding: 0 28px; outline: none; transition: background .2s, box-shadow .2s; }
+#masuk input::placeholder { color: rgba(255, 255, 255, .9); }
+#masuk input { text-transform: none; }   /* sandi tampil persis yang diketik (huruf besar/kecil), tulisan petunjuk tetap kapital */
+#masuk input::placeholder { text-transform: uppercase; }
+/* Petunjuk SANDI selalu terlihat: besar di tengah saat kosong, mengecil ke atas kolom saat diketik (arahan Joe) */
+.kolom-sandi { position: relative; }
+.kolom-sandi label { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; pointer-events: none;
+  color: rgba(255, 255, 255, .9); font: 600 22px var(--f); letter-spacing: .04em; transition: top .15s, font-size .15s, transform .15s; }
+.kolom-sandi input:focus + label, .kolom-sandi input:not(:placeholder-shown) + label { top: 7px; transform: none; font-size: 12px; letter-spacing: .14em; color: rgba(255, 255, 255, .75); }
+.kolom-sandi input:focus, .kolom-sandi input:not(:placeholder-shown) { padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { .kolom-sandi label { transition: none; } }
+#masuk input:focus { background: #2f6d8f; box-shadow: 0 0 0 4px rgba(111, 179, 210, .28); }
+#masuk input:not(:placeholder-shown) { letter-spacing: .3em; }
+#masuk button[type=submit] { height: 64px; font-size: 22px; border-color: rgba(255, 255, 255, .22); }
+#galat { color: var(--merah); min-height: 22px; font-size: 16px; font-weight: 600; }
+#masuk .catatan-masuk { color: var(--redup); font-size: 16px; margin: 6px 0 0; }
+
+/* Pita atas + kepala halaman */
+.atas { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--garis); }
+.atas .bungkus { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 60px; padding-bottom: 0; flex-wrap: wrap; }
+.atas .merek { font-weight: 600; font-size: 24px; letter-spacing: .3em; }
+.atas .kanan { display: flex; gap: 8px; flex-wrap: wrap; padding-block: 8px; }
+.pita { padding: 18px 0 18px; }
+.pita .bungkus { padding-bottom: 0; display: flex; flex-direction: column; gap: 8px; }
+.pita .sub { color: var(--redup); font-size: 17px; max-width: 95ch; }
+.remah { display: flex; flex-wrap: wrap; gap: 8px; }
+.remah span { color: var(--redup); font-size: 15px; font-weight: 600; letter-spacing: .1em; display: inline-flex; gap: 6px; align-items: center; }
+.remah span + span::before { content: "/"; margin-right: 8px; color: var(--garis); }
+.angkat { margin-top: 0; }
+.langkah-menu { display: flex; gap: 8px; flex-wrap: wrap; }
+.langkah-menu span { font-size: 14px; font-weight: 600; letter-spacing: .1em; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--garis); color: var(--redup); }
+.langkah-menu span.aktif { border-color: var(--aksen); color: var(--aksen); }
+
+/* Kartu cabang / gudang: judul rata atas & tengah, keterangan di dasar */
+.pilih { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.cab { background: linear-gradient(165deg, var(--kartu-2), var(--kartu) 60%); border: 1px solid var(--garis); border-radius: 6px; padding: 24px 22px 20px; cursor: pointer; color: var(--teks);
+  width: 100%; min-height: 150px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; letter-spacing: .03em; font-weight: 400; }
+.cab:hover { border-color: var(--aksen); background: linear-gradient(165deg, var(--kartu-2), var(--kartu) 60%); color: var(--teks); }
+.cab.dipilih { border-color: var(--aksen); }
+.cab .nama { font-weight: 600; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.1; letter-spacing: .04em; }
+.cab .nilai { font-size: 64px; font-weight: 500; line-height: 1; font-variant-numeric: tabular-nums; }
+.cab .nilai span { font-size: 18px; font-weight: 600; letter-spacing: .1em; margin-left: 6px; }
+.cab .ket { margin-top: auto; padding-top: 10px; color: var(--redup); font-size: 14px; font-weight: 600; letter-spacing: .1em; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Kesimpulan */
+.vonis { background: var(--kartu); border: 1px solid var(--garis); border-radius: 6px; padding: 22px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.cincin { width: 160px; height: 160px; border-radius: 50%; background: conic-gradient(var(--hijau) calc(var(--p) * 1%), var(--latar-abu) 0); display: grid; place-items: center; }
+.cincin div { width: 126px; height: 126px; border-radius: 50%; background: var(--kartu); display: grid; place-items: center; text-align: center; line-height: 1.05; }
+.cincin b { font-size: 44px; font-weight: 600; }
+.cincin small { font-size: 13px; color: var(--redup); font-weight: 600; letter-spacing: .1em; }
+.vonis .besar { font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; line-height: 1.25; }
+.vonis .kecil { font-size: 19px; margin-top: 6px; }
+.status-pil { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; letter-spacing: .08em; color: var(--w); background: var(--lw); border-radius: 999px; padding: 4px 12px; margin-bottom: 10px; }
+.angka-kecil { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.angka-kecil div { background: var(--kartu-2); border: 1px solid var(--garis); border-radius: 6px; padding: 8px 14px; font-size: 14px; color: var(--redup); font-weight: 600; letter-spacing: .06em; }
+.angka-kecil b { display: block; font-size: 30px; color: var(--w); font-weight: 600; letter-spacing: 0; }
+@media (max-width: 600px) { .vonis { grid-template-columns: 1fr; justify-items: center; text-align: center; } .angka-kecil { justify-content: center; } }
+
+/* Kartu masalah (latar = tingkat prioritas: merah tinggi, kuning sedang, hijau rendah) */
+.masalah { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 12px; margin-top: 14px; }
+.m { background: var(--lw); border: 1px solid color-mix(in srgb, var(--w) 30%, transparent); border-radius: 6px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.m .kepala-m { display: flex; align-items: center; gap: 12px; }
+.m .prioritas { margin-left: auto; align-self: flex-start; font-size: 13px; font-weight: 600; letter-spacing: .08em; color: var(--w); border: 1px solid var(--w); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.m .bulat { width: 44px; height: 44px; border-radius: 6px; background: var(--kartu); color: var(--w); display: grid; place-items: center; font-size: 22px; flex: none; }
+.m .angka { font-size: 40px; font-weight: 600; color: var(--w); line-height: 1; }
+.m .angka small { font-size: 16px; font-weight: 600; color: var(--redup); }
+.m .judul { font-size: 21px; font-weight: 600; line-height: 1.3; }
+.m .arti { font-size: 17px; color: var(--redup); }
+.m .langkah { font-size: 17px; background: var(--kartu); border-radius: 6px; padding: 10px 12px; }
+.m .langkah b { display: block; font-size: 13px; color: var(--w); letter-spacing: .1em; margin-bottom: 2px; }
+.m button { margin-top: auto; }
+.m.nol { opacity: .55; }
+
+/* Daftar DO */
+.pilihan { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+.pilihan select, .pilihan input { padding: 12px 16px; border: 1px solid var(--garis); border-radius: 999px; background: var(--kartu); color: var(--teks); font: inherit; font-size: 16px; max-width: 100%; outline: none; }
+.pilihan input { flex: 1 1 260px; }
+.pilihan select:focus, .pilihan input:focus { border-color: var(--aksen); }
+.kalimat-saring { margin-top: 14px; font-weight: 600; }
+.do { background: var(--kartu); border: 1px solid var(--garis); border-radius: 6px; padding: 14px 16px 14px 20px; margin-top: 10px; cursor: pointer; position: relative; transition: border-color .15s; }
+.do::before { content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--w); }
+.do:hover { border-color: var(--aksen); }
+.do .atas { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; position: static; background: none; border: 0; }
+.do .nomor { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 19px; }
+.do .toko { margin-top: 2px; }
+.do .tanda { display: inline-block; font-size: 15px; font-weight: 600; color: var(--w); background: var(--lw); border-radius: 6px; padding: 3px 9px; margin-top: 6px; }
+.do .rinci { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--garis); display: none; }
+.do.buka .rinci { display: block; }
+.do .buka-teks { font-size: 14px; color: var(--aksen); font-weight: 600; letter-spacing: .08em; margin-top: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 17px; margin-top: 8px; }
+th, td { padding: 8px 8px; border-bottom: 1px solid var(--garis); text-align: left; }
+th { color: var(--redup); font-weight: 600; font-size: 14px; letter-spacing: .1em; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gulir { overflow-x: auto; }
+.halaman { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-top: 16px; flex-wrap: wrap; }
+.kosong { background: var(--kartu); border: 1px solid var(--garis); border-radius: 6px; padding: 24px; text-align: center; color: var(--redup); margin-top: 10px; }
+.peringatan { margin-top: 14px; padding: 12px 14px; border-radius: 6px; background: var(--latar-kuning); color: var(--teks); border: 1px solid var(--kuning); font-weight: 600; }
+details { margin-top: 32px; background: var(--kartu); border: 1px solid var(--garis); border-radius: 6px; padding: 14px 16px; }
+summary { cursor: pointer; font-weight: 600; color: var(--redup); letter-spacing: .06em; }
+.kamus dt { font-weight: 600; margin-top: 10px; }
+.kamus dd { margin: 0; color: var(--redup); }
+.kaki { text-align: center; color: var(--redup); font-size: 16px; letter-spacing: .1em; margin-top: 32px; }
+
+/* Pita "Ada data terbaru" dan kabar singkat, mengambang di bawah layar */
+.mengambang { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 10; width: max-content; max-width: calc(100% - 32px);
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center;
+  background: var(--kartu-2); color: var(--teks); border: 1px solid var(--garis); border-radius: 999px; padding: 8px 8px 8px 18px; box-shadow: var(--bayang-naik); font-weight: 600; font-size: 16px; }
+.mengambang button { padding: 9px 16px; }
+.kabar { padding: 12px 20px; bottom: 150px; font-weight: 600; }
+#pitaBaru { bottom: 90px; }
+#pitaBaru[hidden], #kabar[hidden] { display: none; }
+
+/* Tombol Tanya Bot WMS (grup WhatsApp ALL GUDANG SVARNA DIPA); hanya muncul setelah sandi benar */
+.tombol-wa { position: fixed; right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 11; display: flex; align-items: center; gap: 8px; background: #25d366; color: #0b2a17; text-decoration: none;
+  font-weight: 700; font-size: 16px; letter-spacing: .06em; border-radius: 999px; padding: 14px 18px 14px 14px; box-shadow: 0 10px 30px rgba(37, 211, 102, .35); }
+.tombol-wa .ikon { font-size: 24px; }
+.tombol-wa[hidden] { display: none; }
+.tanya-wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 15px; font-weight: 600; color: #7be3a6; text-decoration: none;
+  border: 1px solid #2f6b47; border-radius: 999px; padding: 7px 14px; }
+@media (prefers-reduced-motion: reduce) { button, .do { transition: none; } }
+</style>
+</head>
+<body class="layar-masuk">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="derauMerek"><feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="4" result="derau"/><feComposite in="SourceGraphic" in2="derau" operator="in"/></filter></svg>
+<form id="masuk" autocomplete="on">
+  <div class="merek-raksasa" aria-label="Svarna Dipa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2468.89 283.47" preserveAspectRatio="none" fill="currentColor" aria-hidden="true">
+    <text x="0" y="273" font-size="380" textLength="2468.89" lengthAdjust="spacingAndGlyphs" filter="url(#derauMerek)">SVARNA DIPA</text></svg></div>
+  <div class="isi-masuk">
+    <input type="text" name="username" value="dashboard" autocomplete="username" hidden>
+    <div class="kolom-sandi"><input id="sandi" type="password" name="password" autocomplete="current-password" placeholder=" " required><label for="sandi">Sandi</label></div>
+    <div id="galat"></div>
+    <button type="submit">Masuk</button>
+    <p class="catatan-masuk">Khusus untuk karyawan. Isi halaman ini rahasia perusahaan dan hanya boleh dipakai untuk pekerjaan gudang. Jangan bagikan sandi, tangkapan layar, atau isinya kepada pihak luar.</p>
+  </div>
+</form>
+<style>#masuk[hidden] ~ .kelola-wadah { display: none; }</style>
+<!-- Menu Kelola akun BERSAMA (BEN, 31 Okt 2026): satu sumber untuk layar sandi web induk (terbit_web.py GERBANG)
+     dan Panel Gudang (Bot WMS dashboard.py). Joe 31 Okt: "kelola akun di modul gudang harus muncul setiap ada perubahan";
+     tanpa layar masuk ("tetap dibuang") - pembatasnya: layanan kelola_web.py hanya menerima perangkat Tailscale. -->
+<div class="kelola-wadah">
+<style>
+  #kelolaBuka.kelola-tombol, #kelola button { font: 600 14px "Aptos Narrow", "Archivo Narrow", "Arial Narrow", system-ui, sans-serif; text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; background: transparent; color: #e6ecf1; cursor: pointer; }
+  #kelolaBuka.kelola-tombol:hover, #kelola button:hover { background: #e6ecf1; color: #11171d; }
+  #kelola { color: #e6ecf1; font: 17px/1.45 "Aptos Narrow", "Archivo Narrow", "Arial Narrow", system-ui, sans-serif; letter-spacing: .03em; }
+  #kelola input, #kelola select { width: 100%; box-sizing: border-box; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); color: #fff;
+    font: 600 18px "Aptos Narrow", "Archivo Narrow", sans-serif; outline: none; }
+  #kelola .pilih-halaman input { width: 18px; }
+  /* Menu Kelola akun di layar masuk (Joe 30 Okt 2026): khusus administrator, dari perangkat Tailscale */
+  #kelolaBuka.kelola-tombol { position: fixed; top: 14px; left: 14px; z-index: 3; height: auto; padding: 10px 16px; font-size: 14px;
+    letter-spacing: .12em; background: rgba(17, 23, 29, .85); }
+  #kelola { position: fixed; inset: 0; z-index: 4; overflow: auto; background: rgba(0, 0, 0, .6); text-transform: none; }
+  #kelola[hidden] { display: none; }
+  #kelola .kotak { width: min(720px, calc(100% - 32px)); margin: 5vh auto; box-sizing: border-box; background: #11171d;
+    border: 1px solid #2a3642; border-radius: 22px; padding: 22px; text-align: left; font-size: 16px; letter-spacing: .02em; }
+  #kelola form { min-height: 0; display: block; padding: 0; text-align: left; }
+  #kelola .kepala { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  #kelola .kepala b { flex: 1; font-size: 20px; letter-spacing: .14em; text-transform: uppercase; }
+  #kelola button { height: auto; font-size: 14px; padding: 9px 16px; letter-spacing: .1em; }
+  #kelola input, #kelola select { height: 50px; font-size: 18px; text-align: left; padding: 0 18px; background: #18212a; text-transform: none; }
+  #kelola select { width: 100%; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .14); color: #fff; font: 600 18px "Aptos Narrow", "Archivo Narrow", sans-serif; }
+  #kelola label.isian { display: block; margin: 12px 0 6px; color: #9aa8b5; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  #kelola .kelompok { margin-top: 18px; }
+  #kelola .kelompok h3 { margin: 0 0 8px; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: #9aa8b5; }
+  #kelola .baris { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-top: 1px solid #2a3642; flex-wrap: wrap; }
+  #kelola .baris .nama { flex: 1; min-width: 160px; }
+  #kelola .baris .nama b { display: block; font-size: 18px; }
+  #kelola .baris .nama small { color: #9aa8b5; font-size: 13px; }
+  #kelola .tabel-pengguna .baris { display: grid; grid-template-columns: minmax(0, 1fr) 150px 130px 180px; gap: 8px; }
+  #kelola .baris .k-nama { font-size: 18px; overflow-wrap: anywhere; }
+  #kelola .baris .k-aksi { display: flex; gap: 8px; justify-content: flex-end; }
+  #kelola .baris .nama b, #kelola .baris .k-nama b { text-transform: uppercase; }   /* nama akun huruf besar (Joe 31 Okt) */
+  @media (max-width: 600px) { #kelola .tabel-pengguna .baris { grid-template-columns: 1fr 1fr; } #kelola .baris .k-aksi { grid-column: 1 / -1; } }
+  #kelola .kepala-tabel { color: #9aa8b5; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  #kelola .kepala-tabel .k-nama { font-size: 13px; }
+  #kelola .pilih-halaman { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px 12px; }
+  #kelola .pilih-halaman label { display: flex; gap: 8px; align-items: center; font-size: 15px; cursor: pointer; }
+  #kelola .pilih-halaman input { width: 18px; height: 18px; padding: 0; }
+  #kelola .tombol-baris { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  #kelola .ket { min-height: 20px; margin-top: 12px; color: #9aa8b5; font-size: 15px; }
+  #kelola .ket.salah { color: #f08a80; }
+  #kelola .ket.baik { color: #8fd3a6; }
+</style>
+  <button class="kelola-tombol" type="button" id="kelolaBuka">&#9776; Kelola akun</button>
+  <div id="kelola" hidden role="dialog" aria-label="Kelola akun"><div class="kotak">
+    <div class="kepala"><b>Kelola akun</b><button type="button" id="kelolaTutup" aria-label="Tutup">&#10005;</button></div>
+    <div id="kelolaIsi"></div>
+    <div class="ket" id="kelolaKet"></div>
+  </div></div>
+<script>
+(() => {
+  // Menu Kelola akun (Joe 30 Okt 2026): layanan kelola_web.py di Mac Winros@, hanya lewat Tailscale (bukan Funnel).
+  const API = "https://svarna5s-mac-mini.tail7a15d8.ts.net:8443";
+  const $ = (i) => document.getElementById(i), isi = $("kelolaIsi"), ket = $("kelolaKet");
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let data = null;
+  const kabar = (t, jenis) => { ket.textContent = t || ""; ket.className = "ket" + (jenis ? " " + jenis : ""); };
+  async function panggil(jalur, isiKirim) {
+    let r;
+    try { r = await fetch(API + jalur, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(isiKirim || {}) }); }
+    catch (e) { throw new Error("Menu ini hanya bisa dipakai dari perangkat yang Tailscale-nya menyala."); }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.galat || "Gagal. Coba lagi.");
+    return j;
+  }
+  const namaHalaman = (ids) => ids.map((i) => (data.halaman.find((h) => h.id === i) || { nama: i }).nama).join(", ");
+  async function muat() { data = await panggil("/daftar"); layarDaftar(); }
+  // Kolom Cabang & Modul untuk Pengguna (Joe 31 Okt 2026), dari halaman yang boleh dibuka akun itu:
+  // <cabang> = Admin Cabang, sales-<cabang> = Sales, pusat = Pusat (semua cabang), pajak = Pajak
+  const kota = (s) => s.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  const letak = (id) => id === "pusat" ? ["Semua cabang", "Pusat"] : id === "pajak" ? ["–", "Pajak"]
+    : id.startsWith("sales-") ? [kota(id.slice(6)), "Sales"] : [kota(id), "Admin Cabang"];
+  const kolom = (ids, i) => [...new Set(ids.map((h) => letak(h)[i]))].join(", ") || "–";
+  const tabelPengguna = () => '<div class="kelompok tabel-pengguna"><h3>Pengguna</h3>' +
+    '<div class="baris kepala-tabel"><span class="k-nama">Pengguna</span><span class="k-cabang">Cabang</span><span class="k-modul">Modul</span><span class="k-aksi"></span></div>' +
+    data.akun.filter((a) => a.peran === "pengguna").map((a) =>
+      '<div class="baris"><span class="k-nama"><b>' + esc(a.nama) + '</b></span><span class="k-cabang">' + esc(kolom(a.halaman, 0)) + '</span>' +
+      '<span class="k-modul">' + esc(kolom(a.halaman, 1)) + '</span><span class="k-aksi"><button type="button" data-ubah="' + esc(a.nama) + '">Ubah</button>' +
+      (a.bawaan ? "" : '<button type="button" data-hapus="' + esc(a.nama) + '">Hapus</button>') + '</span></div>').join("") + '</div>';
+  function layarDaftar() {
+    const kelompok = (peran, judul) => '<div class="kelompok"><h3>' + judul + '</h3>' + data.akun.filter((a) => a.peran === peran).map((a) =>
+      '<div class="baris"><div class="nama"><b>' + esc(a.nama) + '</b><small>' + (peran !== "administrator" ? esc(namaHalaman(a.halaman)) : a.halaman.length >= data.halaman.length ? "Semua halaman" :
+        esc(namaHalaman(a.halaman)) + ". Simpan ulang sandinya supaya bisa membuka semua halaman.") + '</small></div>' +
+      '<button type="button" data-ubah="' + esc(a.nama) + '">Ubah</button>' +
+      (a.bawaan ? "" : '<button type="button" data-hapus="' + esc(a.nama) + '">Hapus</button>') + '</div>').join("") + '</div>';
+    isi.innerHTML = kelompok("administrator", "Administrator") + tabelPengguna() +
+      '<div class="tombol-baris"><button type="button" id="kelolaBaru">+ Buat akun</button></div>';
+    $("kelolaBaru").onclick = () => layarForm(null);
+    isi.querySelectorAll("[data-ubah]").forEach((b) => { b.onclick = () => layarForm(data.akun.find((a) => a.nama === b.dataset.ubah)); });
+    isi.querySelectorAll("[data-hapus]").forEach((b) => { b.onclick = () => layarHapus(b.dataset.hapus); });
+  }
+  function layarForm(a) {
+    const baru = !a, peran = a ? a.peran : "pengguna";
+    isi.innerHTML = '<form id="kelolaForm">' +
+      '<label class="isian" for="kfNama">Nama akun</label><input id="kfNama" autocapitalize="none" autocomplete="off" required ' + (baru ? "" : 'value="' + esc(a.nama) + '" disabled') + '>' +
+      '<label class="isian" for="kfPeran">Peran</label><select id="kfPeran"><option value="administrator">Administrator (semua halaman)</option><option value="pengguna">Pengguna (halaman yang dipilih)</option></select>' +
+      '<div id="kfHalaman"><label class="isian">Halaman yang boleh dibuka</label><div class="pilih-halaman">' +
+      data.halaman.map((h) => '<label><input type="checkbox" value="' + esc(h.id) + '"' + (a && a.halaman.includes(h.id) ? " checked" : "") + '>' + esc(h.nama) + '</label>').join("") + '</div></div>' +
+      // Joe 31 Okt 2026: ubah akun wajib sandi sebelumnya; tanpa itu sandi tidak bisa diganti
+      (baru ? "" : '<label class="isian" for="kfLama">Masukkan Sandi Sebelumnya</label><input id="kfLama" type="password" autocomplete="current-password" required>') +
+      '<label class="isian" for="kfSandi">Masukkan Sandi Baru, Minimal 8 Karakter</label><input id="kfSandi" type="password" autocomplete="new-password" minlength="8" required>' +
+      '<label class="isian" for="kfUlang">Ulangi Sandi</label><input id="kfUlang" type="password" autocomplete="new-password" minlength="8" required>' +
+      '<div class="tombol-baris"><button type="submit">Simpan</button><button type="button" id="kfBatal">Batal</button></div></form>';
+    $("kfPeran").value = peran;
+    const atur = () => { $("kfHalaman").hidden = $("kfPeran").value === "administrator"; };
+    $("kfPeran").onchange = atur; atur();
+    $("kfBatal").onclick = () => { kabar(""); layarDaftar(); };
+    $("kelolaForm").onsubmit = async (ev) => { ev.preventDefault();
+      const sandi = $("kfSandi").value;
+      if (sandi.length < 8) return kabar("Sandi minimal 8 karakter.", "salah");
+      if (sandi !== $("kfUlang").value) return kabar("Kedua isian sandi tidak sama.", "salah");
+      kabar("Menyimpan...");
+      if (!baru && !$("kfLama").value) return kabar("Masukkan sandi sebelumnya.", "salah");
+      try { const j = await panggil("/simpan", { baru, nama: $("kfNama").value.trim().toLowerCase(), peran: $("kfPeran").value, sandi,
+          sandi_lama: baru ? "" : $("kfLama").value,
+          halaman: [...$("kfHalaman").querySelectorAll("input:checked")].map((c) => c.value) });
+        data.akun = j.akun; layarDaftar(); kabar("Tersimpan. Berlaku di web setelah terbit ulang otomatis, sekitar 5 menit.", "baik"); }
+      catch (e) { kabar(e.message, "salah"); }
+      finally { if ($("kfSandi")) { $("kfSandi").value = ""; $("kfUlang").value = ""; } if ($("kfLama")) $("kfLama").value = ""; } };
+    kabar("");
+  }
+  function layarHapus(nama) {
+    isi.innerHTML = '<p>Hapus akun <b>' + esc(nama) + '</b>? Akun ini tidak bisa masuk lagi setelah web terbit ulang.</p>' +
+      '<div class="tombol-baris"><button type="button" id="khYa">Ya, hapus</button><button type="button" id="khBatal">Batal</button></div>';
+    $("khBatal").onclick = () => { kabar(""); layarDaftar(); };
+    $("khYa").onclick = async () => { kabar("Menghapus...");
+      try { const j = await panggil("/hapus", { nama }); data.akun = j.akun; layarDaftar(); kabar("Terhapus. Berlaku di web setelah terbit ulang otomatis, sekitar 5 menit.", "baik"); }
+      catch (e) { layarDaftar(); kabar(e.message, "salah"); } };
+  }
+  $("kelolaBuka").onclick = () => { $("kelola").hidden = false; kabar(""); kabar("Memuat..."); muat().then(() => kabar("")).catch((e) => kabar(e.message, "salah")); };
+  $("kelolaTutup").onclick = () => { $("kelola").hidden = true; };
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("kelola").hidden) $("kelola").hidden = true; });
+})();
+</script>
+</div>
+
+<div id="isi" hidden></div>
+<div id="pitaBaru" class="mengambang" hidden></div>
+<div id="kabar" class="mengambang kabar" hidden></div>
+<a id="tombolWa" class="tombol-wa" href="#" target="_blank" rel="noopener" hidden aria-label="Tanya Bot WMS di grup WhatsApp"></a>
+<script>
+"use strict";
+// Ikon garis (gaya Lucide), digambar sendiri tanpa pustaka luar
+const IKON = {
+  paket: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/>',
+  beda: '<path d="M3 6h18M3 12h11M3 18h8"/><path d="m16 15 5 5m0-5-5 5"/>',
+  dokumen: '<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="m9.5 12.5 5 5m0-5-5 5"/>',
+  sampah: '<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+  kalender: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  jam: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  lokasi: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  gudang: '<path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12M6 14h12"/><rect x="6" y="10" width="12" height="12"/>',
+  cek: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  awas: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/>',
+};
+IKON.chat = '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>';
+IKON.unduh = '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/>';
+const ikon = n => `<svg class="ikon" viewBox="0 0 24 24">${IKON[n]}</svg>`;
+
+// Penjelasan tiap status dengan bahasa sehari-hari. w = warna, perlu = masuk hitungan "perlu dicek".
+const STATUS = {
+  // Teks diaudit BUJANG 27 Okt 2026 (EYD V; istilah tidak boleh berbunyi pengakuan "barang diserahkan tanpa dokumen")
+  "BELUM SCAN >= 1 BULAN": {w: "merah", perlu: true, ikon: "paket", pendek: "Belum di-scan gudang, lebih dari 1 bulan",
+    judul: "Ada DO, tetapi barangnya belum di-scan gudang",
+    arti: "Di Accurate sudah ada DO sejak lebih dari 1 bulan lalu, tetapi di WMS belum ada scan barang keluar.",
+    langkah: "Cek apakah barangnya sudah dikirim. Kalau sudah, cari surat jalan yang sudah ditandatangani, lalu laporkan kepada admin."},
+  "BEDA ITEM/QTY": {w: "merah", perlu: true, ikon: "beda", pendek: "Barang atau jumlahnya berbeda",
+    judul: "Barang yang di-scan tidak sama dengan DO",
+    arti: "Jenis barang atau jumlahnya di DO Accurate berbeda dengan yang di-scan gudang.",
+    langkah: "Tekan DO-nya pada daftar di bawah, lihat barang mana yang berbeda, lalu cocokkan dengan fisik barang."},
+  "SCAN TANPA DO ACCURATE": {w: "merah", perlu: true, ikon: "dokumen", pendek: "Di-scan gudang, tetapi DO-nya belum ada di Accurate",
+    judul: "Sudah di-scan, tetapi DO-nya belum ada di Accurate",
+    arti: "Barang sudah di-scan keluar oleh gudang, tetapi nomornya belum ditemukan sebagai DO di Accurate. Bisa jadi DO belum dibuat, nomornya berbeda, atau transaksinya langsung dibuat faktur.",
+    langkah: "Tanyakan kepada admin cabang apakah DO-nya sudah dibuat. Kalau ini pesanan online hari ini, tunggu sampai besok."},
+  "DO DIHAPUS DI ACCURATE": {w: "merah", perlu: true, ikon: "sampah", pendek: "DO sudah dihapus, tetapi barangnya sudah di-scan",
+    judul: "DO dihapus, padahal barangnya sudah di-scan",
+    arti: "Barangnya sudah di-scan gudang, tetapi DO-nya kemudian dihapus di Accurate.",
+    langkah: "Tanyakan kepada admin yang menghapus: mengapa DO dihapus, dan di mana barangnya sekarang?"},
+  "BEDA BULAN SCAN": {w: "kuning", perlu: false, ikon: "kalender", pendek: "Cocok, tetapi bulan scan berbeda dengan bulan DO",
+    judul: "Cocok, tetapi bulannya berbeda",
+    arti: "Barang dan jumlahnya sudah sama, hanya bulan DO di Accurate berbeda dengan bulan barang di-scan gudang.",
+    langkah: "Usahakan scan pada bulan yang sama dengan DO, terutama pada akhir bulan. Kalau barang sudah keluar tetapi DO-nya belum dibuat, beri tahu admin hari itu juga."},
+  "MENUNGGU SCAN": {w: "hijau", perlu: false, ikon: "jam", pendek: "DO baru, belum di-scan (masih wajar)",
+    judul: "DO baru, belum di-scan",
+    arti: "DO dibuat kurang dari 30 hari lalu dan belum ada scan gudang. Ini masih wajar.",
+    langkah: "Scan saat barang keluar. Kalau lewat 1 bulan belum di-scan, DO ini otomatis pindah ke kotak merah."},
+  "SCAN DARI GUDANG LUAR KONTROL": {w: "kuning", perlu: false, ikon: "gudang", pendek: "Di-scan gudang di luar daftar kontrol",
+    judul: "Di-scan gudang lain", arti: "Scan berasal dari gudang yang tidak termasuk daftar kontrol.", langkah: "Cukup diketahui."},
+  "RINCIAN ACCURATE BELUM DIAMBIL": {w: "abu", perlu: false, ikon: "jam", pendek: "Data Accurate belum lengkap",
+    judul: "Data belum lengkap", arti: "Isi DO dari Accurate belum selesai diambil bot.", langkah: "Tunggu putaran bot berikutnya."},
+};
+const URUT_KARTU = ["BELUM SCAN >= 1 BULAN", "BEDA ITEM/QTY", "SCAN TANPA DO ACCURATE", "DO DIHAPUS DI ACCURATE", "BEDA BULAN SCAN", "MENUNGGU SCAN"];
+const PERLU = Object.keys(STATUS).filter(s => STATUS[s].perlu);
+const WARNA = {hijau: "var(--hijau)", kuning: "var(--kuning)", merah: "var(--merah)", abu: "var(--abu)"};
+const LATAR = {hijau: "var(--latar-hijau)", kuning: "var(--latar-kuning)", merah: "var(--latar-merah)", abu: "var(--latar-abu)"};
+const PRIORITAS = {merah: "Prioritas tinggi", kuning: "Prioritas sedang", hijau: "Prioritas rendah"};
+const gaya = w => `--w:${WARNA[w]};--lw:${LATAR[w]}`;
+const BULAN = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+const PER_HALAMAN = 50;
+
+let sandiAktif = null, data = null, halamanKe = 0, itemPerDo = {}, terbuka = new Set();
+// Staf gudang hanya melihat SATU gudang: menu cabang -> menu gudang -> halaman utama gudang itu
+let pilih = {cabang: "", gudang: ""}, layar = "menu", cabangMenu = null;
+try { pilih = JSON.parse(localStorage.getItem("pilihPanelGudang")) || pilih; } catch (e) { /* penyimpanan browser diblokir: tanpa pilihan terakhir */ }
+
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const fmt = v => (v === null || v === undefined || v === "") ? "" : Number(v).toLocaleString("id-ID", {maximumFractionDigits: 2});
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const tgl = s => { if (!s) return ""; const [y, m, d] = s.slice(0, 10).split("-"); return `${+d} ${BULAN[+m - 1]} ${y}`; };
+const umurHari = s => s ? Math.floor((Date.now() - new Date(s.slice(0, 10))) / 864e5) : null;
+const kecilAwal = s => /^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s;   // "DO ..." tetap huruf besar
+// Nama cabang/gudang ditampilkan sebagai nama diri (kunci data tetap huruf besar supaya pencocokan tidak rusak)
+const NAMA_KHUSUS = {DAANMOGOT: "Daan Mogot"};
+const nama = s => NAMA_KHUSUS[s] || String(s || "").toLowerCase().replace(/(^|\s)\S/g, h => h.toUpperCase());
+const SUMBER = {"WMS scan": "Scan WMS", "Accurate DO": "DO Accurate"};
+const awalBesar = s => s ? String(s)[0].toUpperCase() + String(s).slice(1) : "";
+const waktuWib = t => new Date(t).toLocaleString("id-ID", {dateStyle: "long", timeStyle: "short", timeZone: "Asia/Jakarta"}) + " WIB";
+const waktuData = () => waktuWib(data.dibuat);
+
+async function buka(sandi) {
+  const r = await fetch("data.json?t=" + Date.now(), {cache: "no-store"});
+  if (!r.ok) throw new Error("Data tidak bisa diambil (" + r.status + ")");
+  const p = await r.json();
+  ivData = p.iv;   // tiap terbit bot memakai iv baru: penanda ada data terbaru
+  const bahan = await crypto.subtle.importKey("raw", new TextEncoder().encode(sandi), "PBKDF2", false, ["deriveKey"]);
+  const kunci = await crypto.subtle.deriveKey({name: "PBKDF2", salt: b64(p.garam), iterations: p.iter, hash: "SHA-256"},
+    bahan, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+  let polos;
+  try { polos = await crypto.subtle.decrypt({name: "AES-GCM", iv: b64(p.iv)}, kunci, b64(p.isi)); }
+  catch (e) { throw new Error("Sandi salah. Coba lagi."); }
+  const aliran = new Blob([polos]).stream().pipeThrough(new DecompressionStream("gzip"));
+  return JSON.parse(await new Response(aliran).text());
+}
+
+$("#masuk").addEventListener("submit", async ev => {
+  ev.preventDefault();
+  $("#galat").textContent = "Sedang membuka…";
+  try {
+    data = await buka($("#sandi").value);
+    sandiAktif = $("#sandi").value;
+    document.body.classList.add("bot-siap");   // Tanya Bot Svarna: masuk latar akun "gudang" dengan sandi Panel Gudang
+    if (window.tanyaBotMasuk) window.tanyaBotMasuk("gudang", sandiAktif);
+    $("#masuk").hidden = true; $("#isi").hidden = false;
+    document.body.classList.remove("layar-masuk");
+    $("#tombolWa").innerHTML = `${ikon("chat")} Tanya Bot WMS`;
+    $("#tombolWa").hidden = !data.tautan_grup;   // tautan undangan grup hanya ada di data terenkripsi
+    $("#tombolWa").onclick = ev => tanyaBot(ev, salamWa() + "Saya mau bertanya: ");
+    siapkan(); bukaDariAlamat();
+    tagHalaman = await tandaHalaman();
+    setInterval(cekTerbaru, 60 * 1000);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) cekTerbaru(); });
+  } catch (e) {
+    $("#galat").textContent = e.message;
+    $("#sandi").value = ""; $("#sandi").focus();   // kosongkan supaya petunjuk "Sandi" muncul lagi
+  }
+});
+
+// ---------- Pembaruan tanpa keluar halaman ----------
+// Tiap 1 menit (dan saat HP dibuka lagi) dicek apakah bot sudah menerbitkan data baru.
+// Kalau ada, muncul pita "Ada data terbaru" + tombol Perbarui; cabang, gudang, saringan, dan posisi gulir tetap.
+let ivData = null, tagHalaman = null, sedangMemperbarui = false;
+
+async function tandaHalaman() {
+  try {
+    const r = await fetch("./?cek=" + Date.now(), {method: "HEAD", cache: "no-store"});
+    return r.headers.get("etag") || r.headers.get("last-modified");
+  } catch (e) { return null; }   // gagal cek tampilan: lewati, data tetap dicek
+}
+
+async function cekTerbaru() {
+  if (sedangMemperbarui || !sandiAktif) return;
+  try {
+    const r = await fetch("data.json?t=" + Date.now(), {cache: "no-store"});
+    if (r.ok && (await r.json()).iv !== ivData) return pitaBaru("data");
+    const tag = await tandaHalaman();
+    if (tagHalaman && tag && tag !== tagHalaman) pitaBaru("tampilan");
+  } catch (e) { /* jaringan HP putus sebentar: coba lagi menit berikutnya */ }
+}
+
+function pitaBaru(jenis) {
+  $("#pitaBaru").innerHTML = jenis === "data"
+    ? `<span>${ikon("jam")} Ada data terbaru.</span><button onclick="perbarui()">Perbarui</button>`
+    : `<span>${ikon("awas")} Ada tampilan baru. Sandi perlu diketik lagi.</span><button onclick="location.reload()">Muat tampilan baru</button>`;
+  $("#pitaBaru").hidden = false;
+}
+
+async function perbarui() {
+  if (sedangMemperbarui) return;
+  sedangMemperbarui = true;
+  const gulir = window.scrollY;
+  document.querySelectorAll(".tombol-perbarui").forEach(b => { b.disabled = true; b.textContent = "Memperbarui…"; });
+  try {
+    data = await buka(sandiAktif); siapkan();
+    layar === "utama" ? tampil() : menu(cabangMenu);
+    window.scrollTo(0, gulir);
+    $("#pitaBaru").hidden = true;
+    kabar(`Data terbaru sudah ditampilkan (per ${waktuData()}).`);
+  } catch (e) {
+    if (e.message.startsWith("Sandi salah")) {   // sandi diganti Joe: data baru tidak bisa dibuka dengan sandi lama
+      kabar("Sandi sudah diganti. Tekan Muat tampilan baru, lalu ketik sandi baru.");
+      pitaBaru("tampilan");
+    } else kabar("Gagal memperbarui. Periksa sinyal internet, lalu coba lagi.");
+    document.querySelectorAll(".tombol-perbarui").forEach(b => { b.disabled = false; b.textContent = "Perbarui data"; });
+  } finally { sedangMemperbarui = false; }
+}
+
+function kabar(teks) {
+  $("#kabar").textContent = teks; $("#kabar").hidden = false;
+  clearTimeout(kabar.waktu); kabar.waktu = setTimeout(() => $("#kabar").hidden = true, 4000);
+}
+
+// ---------- Tanya Bot WMS di grup WhatsApp ALL GUDANG SVARNA DIPA (arahan Joe 27 Okt 2026) ----------
+// Pertanyaan siap kirim disalin ke papan klip lalu grup dibuka; staf menempel & mengirim, Bot WMS membalas di grup
+// (semua histori terekam di grup). Nama customer sengaja tidak ikut. Tautan undangan grup hanya di data terenkripsi.
+function tanyaBot(ev, teks) {
+  ev.preventDefault(); ev.stopPropagation();
+  if (!data || !data.tautan_grup) return;
+  const salin = navigator.clipboard ? navigator.clipboard.writeText(teks) : Promise.reject();   // dipanggil saat ketukan
+  window.open(data.tautan_grup, "_blank", "noopener");
+  salin.then(() => kabar("Pertanyaan sudah disalin. Di grup, tempel di kolom ketik, lalu kirim."))
+       .catch(() => kabar(`Tulis di grup: ${teks}`));   // papan klip ditolak browser: tampilkan teksnya
+}
+const salamWa = () => "Halo Bot WMS, " + (pilih.cabang && pilih.gudang && layar === "utama"
+  ? `saya dari Gudang ${nama(pilih.gudang)} (Cabang ${nama(pilih.cabang)}). ` : "");
+
+const tombolPerbarui =`<button class="tipis tombol-perbarui" onclick="perbarui()">Perbarui data</button>`;
+
+function siapkan() {
+  itemPerDo = {};
+  for (const it of data.item_bermasalah) (itemPerDo[it.nomor] ||= []).push(it);
+}
+
+// Lampu: merah > 5% DO perlu dicek, kuning > 1%, selain itu hijau
+function lampu(perlu, jumlah) {
+  const persen = jumlah ? perlu / jumlah * 100 : 0;
+  if (persen > 5) return ["merah", "Banyak yang perlu dicek"];
+  if (persen > 1) return ["kuning", "Ada yang perlu dicek"];
+  return ["hijau", "Aman"];
+}
+
+// Jumlahkan baris per_gudang menjadi satu kelompok (cabang atau gudang)
+function jumlahkan(baris, label) {
+  const k = {nama: label, do: 0, OK: 0};
+  Object.keys(STATUS).forEach(s => k[s] = 0);
+  for (const g of baris) { k.do += g.do; k.OK += g.OK || 0; Object.keys(STATUS).forEach(s => k[s] += g[s] || 0); }
+  k.perlu = PERLU.reduce((a, s) => a + k[s], 0);
+  k.beres = k.OK + k["BEDA BULAN SCAN"];
+  return k;
+}
+
+function daftarCabang() {
+  const per = {};
+  for (const g of data.per_gudang) (per[g.cabang] ||= []).push(g);
+  return Object.entries(per).map(([c, baris]) => ({...jumlahkan(baris, nama(c)), cabang: c, jmlGudang: baris.length}))
+    .sort((a, b) => a.cabang < b.cabang ? -1 : 1);
+}
+
+const cocok = b => b.cabang === pilih.cabang && b.gudang === pilih.gudang;
+
+// Kartu cabang / gudang gaya Svarna Dipa: nama rata atas-tengah, keterangan di dasar kartu.
+// Kartu cabang hanya nama (angka gudang ada di dalam); kartu gudang menampilkan % beres (arahan Joe 27 Okt 2026).
+function kotak(k, ikonNama, onclick, dipilih, lanjut) {
+  const angka = ikonNama === "gudang" && k.do ? `<div class="nilai">${Math.floor(k.beres / k.do * 100)}<span>% beres</span></div>` : "";
+  const ket = ikonNama === "gudang" ? "Kontrol barang keluar" : "Cabang";
+  return `<button class="cab${dipilih ? " dipilih" : ""}" onclick="${onclick}" aria-label="${esc(k.nama)}, ${esc(lanjut)}">
+    <div class="nama">${esc(k.nama)}</div>${angka}<div class="ket">${ket}</div></button>`;
+}
+
+function pita(judul, sub, isiKanan, remah, langkah) {
+  return `<header class="atas"><div class="bungkus"><div class="merek">SVARNA DIPA</div><div class="kanan">${isiKanan || ""}</div></div></header>
+    <div class="atas-merek">${merekRaksasa()}</div>
+    <section class="pita"><div class="bungkus">
+      ${langkah ? `<div class="langkah-menu">${langkah}</div>` : ""}
+      ${remah ? `<div class="remah">${remah}</div>` : ""}
+      <h1>${judul}</h1><div class="sub">${sub}</div></div></section>`;
+}
+
+// Merek SVARNA DIPA raksasa; lingkaran cahaya (--sorot-x) mengikuti mouse kiri-kanan, mengejar dengan halus
+function merekRaksasa() {
+  return `<div class="merek-raksasa" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2468.89 283.47" preserveAspectRatio="none" fill="currentColor">
+    <text x="0" y="273" font-size="380" textLength="2468.89" lengthAdjust="spacingAndGlyphs" filter="url(#derauMerek)">SVARNA DIPA</text></svg></div>`;
+}
+let mouseX = null, sorotKini = 0;
+document.addEventListener("mousemove", e => { mouseX = e.clientX; });
+(function gerakSorot() {
+  if (mouseX !== null) {
+    for (const el of document.querySelectorAll(".merek-raksasa")) {
+      const r = el.getBoundingClientRect();
+      if (!r.width) continue;
+      const tujuan = Math.min(100, Math.max(0, (mouseX - r.left) / r.width * 100));
+      sorotKini += (tujuan - sorotKini) * .12;
+      el.style.setProperty("--sorot-x", sorotKini.toFixed(2) + "%");
+    }
+  }
+  requestAnimationFrame(gerakSorot);
+})();
+
+// ---------- MENU: langkah 1 pilih cabang, langkah 2 pilih gudang ----------
+// ---------- Tombol Back browser/HP: tiap langkah dicatat di alamat (#cabang, #cabang-MEDAN, #gudang-MEDAN--WIRA) ----------
+// Back mundur satu langkah tanpa mengetik sandi lagi (data tetap di memori).
+function catatAlamat(h) { if (location.hash.slice(1) !== h) history.pushState(null, "", "#" + h); }
+function bukaDariAlamat() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h.startsWith("gudang-")) {
+    const [cabang, gudang] = h.slice(7).split("--");
+    if (data.per_gudang.some(g => g.cabang === cabang && g.gudang === gudang)) { masuk(cabang, gudang); return; }
+  }
+  if (h.startsWith("cabang-") && data.per_gudang.some(g => g.cabang === h.slice(7))) { menu(h.slice(7)); return; }
+  menu(null);
+}
+window.addEventListener("popstate", () => { if (data) { bukaDariAlamat(); } });
+
+function menu(cabang) {
+  layar = "menu"; cabangMenu = cabang;
+  catatAlamat(cabang ? "cabang-" + encodeURIComponent(cabang) : "cabang");
+  let h;
+  if (!cabang) {
+    h = pita("Pilih cabang Anda", `Data per ${waktuData()}. Tekan Perbarui data untuk melihat data terbaru.`, tombolPerbarui, "",
+      `<span class="aktif">1. Pilih cabang</span><span>2. Pilih gudang</span>`);
+    h += `<div class="bungkus angkat"><div class="pilih">
+      ${daftarCabang().map(c => kotak(c, "lokasi", `menu('${esc(c.cabang)}')`, c.cabang === pilih.cabang, `Pilih gudang (${c.jmlGudang})`)).join("")}</div></div>`;
+  } else {
+    const gudang = data.per_gudang.filter(g => g.cabang === cabang);
+    h = pita("Pilih gudang Anda", `Cabang ${esc(nama(cabang))} punya ${gudang.length} gudang. Tekan gudang tempat Anda bekerja.`,
+      `<div style="display:flex;gap:8px;flex-wrap:wrap">${tombolPerbarui}<button class="tipis" onclick="menu(null)">‹ Ganti cabang</button></div>`,
+      `<span>${ikon("lokasi")} ${esc(nama(cabang))}</span>`,
+      `<span>1. Pilih cabang</span><span class="aktif">2. Pilih gudang</span>`);
+    h += `<div class="bungkus angkat"><div class="pilih">
+      ${gudang.map(g => kotak(jumlahkan([g], "Gudang " + nama(g.gudang)), "gudang", `masuk('${esc(cabang)}', '${esc(g.gudang)}')`, cabang === pilih.cabang && g.gudang === pilih.gudang, "Buka panel")).join("")}</div></div>`;
+  }
+  $("#isi").innerHTML = h;
+  window.scrollTo(0, 0);
+}
+
+function masuk(cabang, gudang) {
+  pilih = {cabang, gudang};
+  catatAlamat("gudang-" + encodeURIComponent(cabang) + "--" + encodeURIComponent(gudang));
+  try { localStorage.setItem("pilihPanelGudang", JSON.stringify(pilih)); } catch (e) { /* abaikan, pilihan hanya untuk sesi ini */ }
+  halamanKe = 0; terbuka = new Set();
+  tampil();
+  window.scrollTo(0, 0);
+}
+
+// ---------- HALAMAN UTAMA: satu gudang saja ----------
+function tampil() {
+  layar = "utama";
+  const baris = data.per_gudang.filter(cocok);
+  if (!baris.length) return menu(null);   // gudang hilang dari data: kembali ke menu
+  const r = jumlahkan(baris, "Gudang " + pilih.gudang);
+  const umurMenit = Math.round((Date.now() - new Date(data.dibuat)) / 60000);
+  const scanTerakhir = data.kelengkapan && data.kelengkapan.scan_terakhir;
+  const umurScan = scanTerakhir ? Math.round((Date.now() - new Date(scanTerakhir)) / 60000) : null;
+  const [warna, teksLampu] = lampu(r.perlu, r.do);
+  const persen = Math.floor(r.beres / r.do * 100);
+
+  let h = pita("Barang keluar gudang: sudah cocok dengan Accurate?",
+    `DO Accurate dibandingkan dengan scan barang keluar (WMS), ${tgl(data.periode.mulai)} sampai ${tgl(data.periode.sampai)}. Data per ${waktuData()} (${umurMenit} menit lalu).`,
+    `<div style="display:flex;gap:8px;flex-wrap:wrap">${tombolPerbarui}<button class="tipis" onclick="menu('${esc(pilih.cabang)}')">Ganti gudang</button></div>`,
+    `<span>${ikon("lokasi")} ${esc(nama(pilih.cabang))}</span><span>${ikon("gudang")} Gudang ${esc(nama(pilih.gudang))}</span>`);
+  h += `<div class="bungkus angkat">`;
+  if (umurMenit > 60) h += `<div class="peringatan">${ikon("awas")} Data sudah lebih dari 1 jam tidak diperbarui. Beri tahu admin pusat.</div>`;
+  else if (umurScan !== null && umurScan > 60) h += `<div class="peringatan">${ikon("awas")} Scan WMS terakhir masuk ${waktuWib(scanTerakhir)}. Barang yang di-scan sesudah itu belum terlihat di sini, jadi DO bisa tampil belum di-scan padahal sudah.</div>`;
+  if (data.kelengkapan.rincian_accurate_belum > 0) h += `<div class="peringatan">${ikon("awas")} Isi ${fmt(data.kelengkapan.rincian_accurate_belum)} DO Accurate belum selesai diambil bot. Angka masih bisa berubah.</div>`;
+
+  // 1. Kesimpulan
+  h += `<div class="vonis">
+    <div class="cincin" style="--p:${persen}"><div><span><b>${persen}%</b><br><small>beres</small></span></div></div>
+    <div><div class="status-pil" style="${gaya(warna)}">${ikon(warna === "hijau" ? "cek" : "awas")} ${teksLampu}</div>
+      <div class="besar">${persen} dari 100 pengiriman di gudang ini sudah beres.</div>
+      <div class="kecil">Masih ada <b style="color:var(--merah)">${fmt(r.perlu)} DO</b> yang perlu dicek, dari total ${fmt(r.do)} DO.</div>
+      <div class="angka-kecil">
+        <div style="${gaya("hijau")}"><b>${fmt(r.beres)}</b>Beres</div>
+        <div style="${gaya("merah")}"><b>${fmt(r.perlu)}</b>Perlu dicek</div>
+        <div style="${gaya("abu")}"><b>${fmt(r["MENUNGGU SCAN"])}</b>DO baru, menunggu scan</div></div></div></div>`;
+
+  // 1b. Control Aktivitas Keluar Barang Harian (Joe 31 Okt 2026)
+  h += bagianHarian();
+
+  // 2. Masalah dan langkahnya
+  h += `<h2>Apa saja masalahnya, dan apa yang harus dilakukan</h2><div class="redup">Merah = prioritas tinggi, harus dibereskan. Kuning = prioritas sedang, perlu diperhatikan. Hijau = prioritas rendah, masih wajar.</div><div class="masalah">`;
+  for (const s of URUT_KARTU) {
+    const st = STATUS[s], n = r[s] || 0;
+    h += `<div class="m${n ? "" : " nol"}" style="${gaya(n ? st.w : "abu")}">
+      <div class="kepala-m"><div class="bulat">${ikon(n ? st.ikon : "cek")}</div><div class="angka">${fmt(n)} <small>DO</small></div>${n && PRIORITAS[st.w] ? `<span class="prioritas">${PRIORITAS[st.w]}</span>` : ""}</div>
+      <div class="judul">${esc(st.judul)}</div>
+      ${n ? `<div class="arti">${esc(st.arti)}</div>
+      <div class="langkah"><b>Yang harus dilakukan</b>${esc(st.langkah)}</div>` : `<div class="arti">Tidak ada. Bagus!</div>`}
+      ${n && s !== "MENUNGGU SCAN" ? `<button onclick="lihat('${s}')">Lihat daftarnya</button>` : ""}</div>`;
+  }
+  h += `</div>`;
+
+  // 3. Daftar DO
+  const pilihanStatus = Object.keys(STATUS).filter(s => s !== "MENUNGGU SCAN" && (r[s] || 0));
+  h += `<h2 id="judulDaftar">Daftar DO yang perlu dicek</h2><div class="redup">Tekan satu DO untuk melihat barang apa yang berbeda.</div>
+    <div class="pilihan">
+      <select id="fStatus"><option value="perlu">Semua yang merah (perlu dicek)</option><option value="">Semua (merah + kuning)</option>
+        ${pilihanStatus.map(s => `<option value="${esc(s)}">${esc(STATUS[s].pendek)}</option>`).join("")}</select>
+      <input id="fCari" type="search" placeholder="Cari nomor DO, nama toko, atau kode barang">
+      <button id="tombolExcel" class="tipis" onclick="unduhExcel()">${ikon("unduh")} Unduh Excel</button></div>
+    <div id="kalimat" class="kalimat-saring"></div><div id="daftar"></div>`;
+
+  // 4. Kamus & catatan admin
+  h += `<details><summary>Kamus istilah</summary><dl class="kamus">
+    <dt>DO</dt><dd>Dokumen pengiriman barang (<i>delivery order</i>) yang dibuat admin di Accurate.</dd>
+    <dt>Scan/WMS</dt><dd>Barang di-scan petugas gudang saat keluar, tercatat di aplikasi gudang (WMS Hatohebi).</dd>
+    <dt>Beres</dt><dd>Barang dan jumlah di DO Accurate sama dengan yang di-scan gudang.</dd>
+    <dt>Selisih</dt><dd>Jumlah scan WMS dikurangi jumlah di DO Accurate. Angka minus berarti yang di-scan lebih sedikit daripada DO.</dd></dl></details>`;
+  const perubahan = (data.perubahan || []).filter(b => b.gudang === pilih.gudang);
+  h += `<details><summary>Catatan untuk admin: perubahan data 7 hari terakhir (${fmt(perubahan.length)})</summary><div class="gulir"><table>
+    <thead><tr><th>Waktu</th><th>Sumber</th><th>Jenis</th><th>Nomor</th><th>Kode</th><th class="n">Jumlah lama</th><th class="n">Jumlah baru</th></tr></thead><tbody>
+    ${perubahan.slice(0, 300).map(b => `<tr><td>${esc((b.waktu || "").replace("T", " ").slice(0, 16))}</td><td>${esc(SUMBER[b.sumber] || b.sumber)}</td><td>${esc(awalBesar(b.jenis))}</td><td>${esc(b.nomor)}</td><td>${esc(b.kode)}</td><td class="n">${fmt(b.qty_lama)}</td><td class="n">${fmt(b.qty_baru)}</td></tr>`).join("")}
+    </tbody></table></div>${perubahan.length > 300 ? `<div class="redup">Ditampilkan 300 baris terbaru.</div>` : ""}</details>
+    <div class="kaki">Svarna Dipa · Panel Gudang · Rahasia perusahaan, hanya untuk penggunaan internal</div></div>`;
+
+  const lama = {s: $("#fStatus")?.value ?? "perlu", q: $("#fCari")?.value || ""};
+  $("#isi").innerHTML = h;
+  $("#fStatus").value = [...$("#fStatus").options].some(o => o.value === lama.s) ? lama.s : "perlu";
+  $("#fCari").value = lama.q;
+  ["#fStatus", "#fCari"].forEach(id => $(id).oninput = () => { halamanKe = 0; daftar(); });
+  daftar();
+  if ($("#fHari")) {
+    $("#fHari").value = hariPilih;
+    $("#fHari").onchange = e => { hariPilih = e.target.value; harianBuka = new Set(); isiHarian(); };
+    isiHarian();
+  }
+}
+
+// ---------- CONTROL AKTIVITAS KELUAR BARANG HARIAN (Joe 31 Okt 2026) ----------
+// Arah kontrol (Joe 31 Okt 2026: "dibalik"): mulai dari yang DI-SCAN keluar di WMS (barang, jumlah, gudang) lalu
+// dicocokkan ke DO Accurate dengan nomor yang sama: barang, jumlah per barang, dan gudang harus sama.
+// DO Accurate yang belum di-scan hanya catatan di bawah. Data: data.harian (bot, 14 hari terakhir), item per (gudang, kode).
+let hariPilih = null, harianBuka = new Set();
+const cocokH = b => b.c === pilih.cabang && b.g === pilih.gudang;
+const URUT_HASIL = {merah: 0, abu: 1, hijau: 2};   // yang tidak cocok di atas
+function hasilHarian(b) {
+  if (b.s === "RINCIAN ACCURATE BELUM DIAMBIL") return {w: "abu", teks: "Rincian Accurate belum diambil"};   // audit BRO: jangan tampil "berbeda"
+  if (!b.ta) return {w: "merah", teks: b.s === "DO DIHAPUS DI ACCURATE" ? "DO dihapus di Accurate" : "Nomor DO tidak ada di Accurate"};
+  const beda = b.i.filter(x => Math.abs(x[2] - x[3]) > 1e-9);
+  if (!beda.length) return {w: "hijau", teks: "Cocok"};
+  const perKode = {};
+  for (const x of b.i) { const k = perKode[x[0]] ||= [0, 0]; k[0] += x[2]; k[1] += x[3]; }
+  if (Object.values(perKode).every(k => Math.abs(k[0] - k[1]) < 1e-9)) return {w: "merah", teks: "Gudang scan berbeda"};
+  if (beda.some(x => x[3] && !x[2])) return {w: "merah", teks: "Barang di-scan tidak ada di DO"};
+  if (beda.some(x => !x[3] && x[2])) return {w: "merah", teks: "Barang di DO tidak di-scan"};
+  return {w: "merah", teks: "Jumlah scan berbeda"};
+}
+function bagianHarian() {
+  const semua = (data.harian || []).filter(cocokH);
+  if (!semua.length) return "";
+  const hari = [...new Set(semua.map(b => b.h))].sort().reverse();
+  if (!hari.includes(hariPilih)) hariPilih = hari[0];
+  return `<h2 id="judulHarian">Control Aktivitas Keluar Barang Harian</h2>
+    <div class="redup">Dimulai dari barang yang di-scan keluar di WMS, lalu dicocokkan ke DO Accurate yang nomornya sama: barangnya sama,
+      jumlah per barang sama, dan gudang scan sama dengan gudang di DO. Tanggal = hari barang di-scan keluar.</div>
+    <div class="pilihan"><select id="fHari" aria-label="Pilih tanggal">${hari.map(x => `<option value="${x}">${tgl(x)}</option>`).join("")}</select></div>
+    <div id="harian"></div>`;
+}
+function bukaHarian(nomor) { harianBuka.has(nomor) ? harianBuka.delete(nomor) : harianBuka.add(nomor); isiHarian(); }
+function isiHarian() {
+  const hariIni = (data.harian || []).filter(b => cocokH(b) && b.h === hariPilih);
+  const baris = hariIni.filter(b => b.ts).map(b => ({...b, hasil: hasilHarian(b)}))
+    .sort((a, b) => (URUT_HASIL[a.hasil.w] - URUT_HASIL[b.hasil.w]) || (a.ts < b.ts ? -1 : 1));
+  const belum = hariIni.filter(b => b.ta && !b.ts);
+  const hitung = w => baris.filter(b => b.hasil.w === w).length;
+  const qty = (b, i) => b.i.reduce((s, x) => s + x[i], 0);
+  let h = `<div class="angka-kecil" style="margin:10px 0 14px">
+      <div style="${gaya("abu")}"><b>${fmt(baris.length)}</b>DO di-scan keluar</div>
+      <div style="${gaya("abu")}"><b>${fmt(baris.reduce((s, b) => s + qty(b, 3), 0))}</b>Unit di-scan</div>
+      <div style="${gaya("hijau")}"><b>${fmt(hitung("hijau"))}</b>Cocok dengan Accurate</div>
+      <div style="${gaya("merah")}" title="Barang/jumlah/gudang berbeda, atau nomor DO tidak ada / dihapus di Accurate"><b>${fmt(hitung("merah"))}</b>Tidak cocok<small style="display:block;text-transform:none;letter-spacing:0">barang/jumlah/gudang berbeda, atau DO tidak ada di Accurate</small></div></div>`;
+  h += `<div class="gulir"><table><thead><tr><th>Nomor DO (scan)</th><th>Jam scan WMS</th><th class="n">Jumlah scan</th><th class="n">Jumlah di DO Accurate</th>
+      <th>Toko (Accurate)</th><th>Tgl DO Accurate</th><th>Hasil</th></tr></thead><tbody>
+    ${baris.map(b => {
+      const buka = harianBuka.has(b.n);
+      return `<tr style="cursor:pointer" data-nomor="${esc(b.n)}" onclick="bukaHarian(this.dataset.nomor)">
+        <td><b>${esc(b.n)}</b></td><td>${esc(b.ts.slice(0, 16))}</td><td class="n">${fmt(qty(b, 3))}</td><td class="n">${b.ta ? fmt(qty(b, 2)) : "–"}</td>
+        <td>${esc(b.cu || "–")}</td><td>${b.ta ? tgl(b.ta) : "–"}</td>
+        <td><span class="status-pil" style="${gaya(b.hasil.w)}">${ikon(b.hasil.w === "hijau" ? "cek" : "awas")} ${esc(b.hasil.teks)}</span> <span class="redup">${buka ? "▲" : "▼"}</span></td></tr>`
+        + (buka ? `<tr><td colspan="7"><table><thead><tr><th>Barang</th><th>Gudang</th><th class="n">Di-scan WMS</th><th class="n">Di DO Accurate</th><th class="n">Selisih (scan − DO)</th><th></th></tr></thead><tbody>
+          ${b.i.map(x => `<tr><td>${esc(x[1])} <span class="redup">(${esc(x[0])})</span></td><td>${esc(x[4] || "–")}</td><td class="n">${fmt(x[3])}</td><td class="n">${fmt(x[2])}</td>
+            <td class="n">${fmt(x[3] - x[2])}</td><td>${Math.abs(x[2] - x[3]) > 1e-9 ? `<span style="color:var(--merah)">✗ beda</span>` : `<span style="color:var(--hijau)">✓ sama</span>`}</td></tr>`).join("")}
+          </tbody></table></td></tr>` : "");
+    }).join("") || `<tr><td colspan="7" class="redup">Tidak ada barang di-scan keluar pada tanggal ini.</td></tr>`}
+    </tbody></table></div>`;
+  if (belum.length) h += `<details><summary>Catatan: ${fmt(belum.length)} DO Accurate tanggal ini belum di-scan keluar</summary><div class="gulir"><table>
+    <thead><tr><th>Nomor DO</th><th>Toko</th><th class="n">Jumlah di DO</th></tr></thead><tbody>
+    ${belum.map(b => `<tr><td>${esc(b.n)}</td><td>${esc(b.cu || "–")}</td><td class="n">${fmt(qty(b, 2))}</td></tr>`).join("")}</tbody></table></div></details>`;
+  $("#harian").innerHTML = h;
+}
+
+
+function lihat(status) {
+  $("#fStatus").value = status || "perlu"; $("#fCari").value = "";
+  halamanKe = 0; daftar();
+  $("#judulDaftar").scrollIntoView({behavior: "smooth"});
+}
+
+function bukaTutup(nomor) { terbuka.has(nomor) ? terbuka.delete(nomor) : terbuka.add(nomor); daftar(); }
+
+function kalimatMasalah(b) {
+  let t = (STATUS[b.status] || {pendek: b.status}).pendek;
+  if (b.status === "BELUM SCAN >= 1 BULAN" && b.tgl_accurate) t += ` (DO sudah ${fmt(umurHari(b.tgl_accurate))} hari)`;
+  if (b.status === "BEDA ITEM/QTY") t += b.qty_accurate === b.qty_wms
+    ? `: jumlahnya sama (${fmt(b.qty_wms)}), tetapi jenis barangnya berbeda`
+    : `: di DO ${fmt(b.qty_accurate)} barang, di-scan ${fmt(b.qty_wms)} barang`;
+  if (b.status === "BEDA BULAN SCAN") t += `: DO ${tgl(b.tgl_accurate)}, di-scan ${tgl(b.tgl_scan)}`;
+  return t;
+}
+
+// DO gudang terpilih sesuai saringan di layar (dipakai daftar di layar dan Unduh Excel)
+function saringDo() {
+  const s = $("#fStatus").value, q = $("#fCari").value.trim().toUpperCase();
+  const baris = data.do_bermasalah.filter(b => cocok(b)
+    && (s === "perlu" ? STATUS[b.status]?.perlu : (!s || b.status === s))
+    && (!q || [b.nomor, b.customer].some(v => String(v || "").toUpperCase().includes(q))
+        || (itemPerDo[b.nomor] || []).some(it => String(it.kode || "").toUpperCase().includes(q))));
+  // Yang paling lama di atas (DO tanpa tanggal Accurate memakai tanggal scan)
+  baris.sort((a, b) => (a.tgl_accurate || a.tgl_scan || "") < (b.tgl_accurate || b.tgl_scan || "") ? -1 : 1);
+  const label = s === "perlu" ? "yang perlu dicek" : s ? `"${STATUS[s].pendek}"` : "bermasalah (merah + kuning)";
+  return {baris, label, s, q};
+}
+
+function daftar() {
+  const {baris, label, s, q} = saringDo();
+  const jml = baris.length, maksHal = Math.max(0, Math.ceil(jml / PER_HALAMAN) - 1);
+  halamanKe = Math.min(halamanKe, maksHal);
+  $("#kalimat").textContent = `Ada ${fmt(jml)} DO ${label} di Gudang ${nama(pilih.gudang)}${q ? ` dengan kata "${$("#fCari").value.trim()}"` : ""}.`
+    + (jml ? " Yang paling lama ada di atas." : "");
+  let h = baris.slice(halamanKe * PER_HALAMAN, (halamanKe + 1) * PER_HALAMAN).map(b => {
+    const st = STATUS[b.status] || {w: "abu"};
+    const items = itemPerDo[b.nomor] || [];
+    const rinci = `<div class="redup">${b.tgl_scan ? `Di-scan ${tgl(b.tgl_scan)}` : "Belum ada scan"}${b.picking ? ` · nomor picking ${esc(b.picking)}` : ""}</div>
+      ${b.keterangan ? `<div style="margin-top:4px">Catatan: ${esc(b.keterangan)}</div>` : ""}
+      ${items.length ? `<div class="gulir"><table><thead><tr><th>Barang</th><th class="n">DO Accurate</th><th class="n">Scan WMS</th><th class="n">Selisih</th></tr></thead><tbody>
+        ${items.map(it => `<tr><td>${esc(it.nama)} <span class="redup">(${esc(it.kode)})</span></td><td class="n">${fmt(it.qty_accurate)}</td><td class="n">${fmt(it.qty_wms)}</td><td class="n">${fmt(it.selisih)}</td></tr>`).join("")}
+        </tbody></table></div>` : ""}`;
+    const buka = terbuka.has(b.nomor);
+    return `<div class="do${buka ? " buka" : ""}" style="${gaya(st.w)}" data-nomor="${esc(b.nomor)}" onclick="bukaTutup(this.dataset.nomor)">
+      <div class="atas"><span class="nomor">${esc(b.nomor)}</span><span class="redup">${b.tgl_accurate ? "DO " + tgl(b.tgl_accurate) : "belum ada DO"}</span></div>
+      ${b.customer ? `<div class="toko">${esc(b.customer)}</div>` : ""}
+      <div class="tanda">${esc(kalimatMasalah(b))}</div>
+      <div class="rinci">${rinci}
+        ${data.tautan_grup ? `<a class="tanya-wa" href="#" data-teks="${esc(salamWa() + `Saya mau bertanya tentang ${b.nomor}: ${kalimatMasalah(b)}. `)}"
+          onclick="tanyaBot(event, this.dataset.teks)">${ikon("chat")} Tanya Bot WMS di grup WhatsApp</a>` : ""}</div>
+      <div class="buka-teks">${buka ? "Tutup ▲" : "Lihat rincian ▼"}</div></div>`;
+  }).join("");
+  if (!jml) h = `<div class="kosong">${ikon("cek")} Tidak ada DO yang cocok dengan pilihan ini.</div>`;
+  else h += `<div class="halaman"><button class="tipis" ${halamanKe ? "" : "disabled"} onclick="halamanKe--;daftar();$('#judulDaftar').scrollIntoView()">‹ Sebelumnya</button>
+    <span class="redup">${fmt(halamanKe * PER_HALAMAN + 1)}–${fmt(Math.min(jml, (halamanKe + 1) * PER_HALAMAN))} dari ${fmt(jml)}</span>
+    <button class="tipis" ${halamanKe < maksHal ? "" : "disabled"} onclick="halamanKe++;daftar();$('#judulDaftar').scrollIntoView()">Berikutnya ›</button></div>`;
+  $("#daftar").innerHTML = h;
+}
+
+// ---------- Unduh Excel satu gudang (permintaan staf gudang, disetujui Joe 27 Okt 2026) ----------
+// Pustaka SheetJS 0.18.5 (sama dengan dashboard GIO) dimuat hanya saat tombol ditekan.
+// Berkas dibuat di HP/komputer staf sendiri dari data yang sudah terbuka; tidak ada data yang dikirim ke mana pun.
+function muatPustakaExcel() {
+  if (window.XLSX) return Promise.resolve();
+  return new Promise((jadi, gagal) => {
+    const s = document.createElement("script");
+    s.src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+    // Dikunci SRI (audit BUJANG 27 Okt 2026): bila berkas di CDN berubah, browser menolak memuatnya
+    s.integrity = "sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==";
+    s.crossOrigin = "anonymous";
+    s.referrerPolicy = "no-referrer";
+    s.onload = jadi;
+    s.onerror = () => gagal(new Error("Excel tidak bisa dibuat. Periksa sinyal internet, lalu coba lagi."));
+    document.head.appendChild(s);
+  });
+}
+
+const tglExcel = s => s ? new Date(s.slice(0, 10) + "T00:00:00") : "";
+function lembar(baris, lebar) {
+  const ws = XLSX.utils.aoa_to_sheet(baris, {cellDates: true, dateNF: "[$-421]dd mmm yyyy"});   // 421 = bahasa Indonesia (Okt, Agu, Des)
+  ws["!cols"] = lebar.map(w => ({wch: w}));
+  return ws;
+}
+
+async function unduhExcel() {
+  const tombol = $("#tombolExcel");
+  tombol.disabled = true; tombol.textContent = "Menyiapkan Excel…";
+  try {
+    await muatPustakaExcel();
+    const {baris, label} = saringDo();
+    const r = jumlahkan(data.per_gudang.filter(cocok), "Gudang " + pilih.gudang);
+    const pendek = b => (STATUS[b.status] || {pendek: b.status}).pendek;
+    const ringkasan = [
+      ["Kontrol barang keluar gudang: DO Accurate dibandingkan dengan scan WMS"],
+      ["Rahasia perusahaan. Hanya untuk pekerjaan gudang; jangan dibagikan kepada pihak luar."],
+      ["Cabang", nama(pilih.cabang)], ["Gudang", nama(pilih.gudang)],
+      ["Periode", `${tgl(data.periode.mulai)} sampai ${tgl(data.periode.sampai)}`],
+      ["Data per", waktuData()], ["Isi sheet Daftar DO", `DO ${label}`], [],
+      ["Keterangan", "Jumlah DO"], ["Total DO", r.do], ["Beres", r.beres], ["Perlu dicek", r.perlu],
+      ...Object.keys(STATUS).filter(s => r[s]).map(s => [STATUS[s].pendek, r[s]]),
+      ["Persen beres", {t: "n", v: r.do ? Math.floor(r.beres / r.do * 100) / 100 : 0, z: "0%"}]];
+    const daftarDo = [["Nomor DO", "Tanggal DO", "Toko", "Tanggal scan", "Nomor picking", "Masalah", "Penjelasan", "Catatan", "Jumlah DO Accurate", "Jumlah scan WMS"],
+      ...baris.map(b => [b.nomor, tglExcel(b.tgl_accurate), b.customer || "", tglExcel(b.tgl_scan), b.picking || "",
+        pendek(b), kalimatMasalah(b), b.keterangan || "", b.qty_accurate ?? "", b.qty_wms ?? ""])];
+    const rinci = [["Nomor DO", "Kode barang", "Nama barang", "Jumlah DO Accurate", "Jumlah scan WMS", "Selisih", "Masalah DO"]];
+    for (const b of baris) for (const it of itemPerDo[b.nomor] || [])
+      rinci.push([b.nomor, it.kode || "", it.nama || "", it.qty_accurate ?? 0, it.qty_wms ?? 0, it.selisih ?? 0, pendek(b)]);
+    const akhir = rinci.length;   // baris data terakhir (judul di baris 1)
+    rinci.push(["TOTAL", "", "", {t: "n", f: `SUM(D2:D${akhir})`}, {t: "n", f: `SUM(E2:E${akhir})`}, {t: "n", f: `SUM(F2:F${akhir})`}, ""]);
+    const buku = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(buku, lembar(ringkasan, [36, 48]), "Ringkasan");
+    XLSX.utils.book_append_sheet(buku, lembar(daftarDo, [20, 13, 34, 13, 16, 40, 60, 30, 12, 12]), "Daftar DO");
+    XLSX.utils.book_append_sheet(buku, lembar(rinci, [20, 16, 44, 12, 12, 10, 40]), "Rincian barang");
+    const namaBerkas = `Kontrol Gudang ${nama(pilih.gudang)} ${data.dibuat.slice(0, 10)} (Staf Gudang).xlsx`;
+    XLSX.writeFile(buku, namaBerkas);
+    kabar(`Excel sudah diunduh: ${namaBerkas}`);
+  } catch (e) {
+    kabar(e.message || "Excel gagal dibuat. Coba lagi.");
+  } finally {
+    tombol.disabled = false; tombol.innerHTML = `${ikon("unduh")} Unduh Excel`;
+  }
+}
+</script>
+<style>
+.tombol-bot { position: fixed; right: calc(18px + env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 100; display: flex; align-items: center; gap: 8px; background: #25d366; color: #0b2a17; border: 0; cursor: pointer;
+  font: 700 16px/1 "Aptos Narrow", "Archivo Narrow", "Arial Narrow", sans-serif; letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 999px; padding: 14px 18px 14px 14px; box-shadow: 0 10px 30px rgba(37, 211, 102, .35); }
+.tombol-bot svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+body.panel-bot-buka .tombol-bot { display: none; }
+#panelBot { position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 100vw); z-index: 101; display: flex; flex-direction: column;
+  background: #11171d; color: #e6ecf1; border-left: 1px solid #2a3642; box-shadow: -18px 0 40px rgba(0, 0, 0, .45);
+  font: 15px/1.45 "Aptos Narrow", "Archivo Narrow", "Arial Narrow", system-ui, sans-serif; transform: translateX(105%); transition: transform .2s ease; }
+body.panel-bot-buka #panelBot { transform: none; }
+#panelBot .pb-kepala { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid #2a3642; }
+#panelBot .pb-judul { flex: 1; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 15px; }
+#panelBot .pb-judul small { display: block; font-weight: 600; letter-spacing: .08em; color: #9aa8b5; font-size: 11px; }
+#panelBot button.pb-ikon { background: none; border: 0; color: #9aa8b5; cursor: pointer; font-size: 20px; line-height: 1; padding: 4px 6px; }
+#panelBot button.pb-ikon:hover { color: #e6ecf1; }
+#panelBot .pb-isi { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+#panelBot .pb-kosong { margin: auto; text-align: center; color: #9aa8b5; text-transform: uppercase; letter-spacing: .1em; font-size: 13px; }
+#panelBot .pb-kosong b { display: block; color: #e6ecf1; font-size: 22px; letter-spacing: .12em; margin-bottom: 6px; }
+#panelBot .pb-saya { align-self: flex-end; max-width: 85%; background: #2b6382; color: #fff; border-radius: 14px 14px 4px 14px; padding: 8px 12px; white-space: pre-wrap; }
+#panelBot .pb-ai { align-self: flex-start; max-width: 92%; background: #18212a; border: 1px solid #2a3642; border-radius: 14px 14px 14px 4px; padding: 10px 12px; }
+#panelBot .pb-ai p { margin: 0 0 6px; } #panelBot .pb-ai p:last-child { margin: 0; }
+#panelBot .pb-ai.pb-tunggu { color: #9aa8b5; font-style: italic; }
+#panelBot .pb-galat { color: #f08a80; font-size: 13px; }
+#panelBot .pb-waktu { align-self: center; color: #6f7f8d; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+#panelBot .pb-garis { align-self: stretch; text-align: center; color: #6f7f8d; font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  border-top: 1px solid #2a3642; padding-top: 8px; }
+#panelBot .pb-bawah { padding: 12px 14px 16px; border-top: 1px solid #2a3642; }
+#panelBot .pb-kotak { background: #18212a; border: 1px solid #2a3642; border-radius: 16px; padding: 10px 12px; display: flex; gap: 8px; align-items: flex-end; }
+#panelBot .pb-kotak:focus-within { border-color: #6fb3d2; }
+#panelBot textarea, #panelBot input { width: 100%; box-sizing: border-box; background: transparent; border: 0; outline: none; color: #e6ecf1;
+  font: inherit; font-size: 15px; resize: none; }
+#panelBot textarea { min-height: 44px; max-height: 160px; }
+#panelBot .pb-kirim { flex: none; width: 34px; height: 34px; border-radius: 999px; border: 0; background: #6fb3d2; color: #11171d; cursor: pointer; font-size: 17px; font-weight: 700; }
+#panelBot .pb-kirim:disabled { opacity: .4; cursor: default; }
+#panelBot .pb-tombol { border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; background: none; color: #e6ecf1; padding: 12px; cursor: pointer;
+  font: 700 15px "Aptos Narrow", "Archivo Narrow", sans-serif; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; text-align: center; }
+#panelBot .pb-tombol:hover { background: #e6ecf1; color: #11171d; }
+#panelBot .pb-ket { color: #9aa8b5; font-size: 12px; letter-spacing: .04em; text-align: center; }
+</style>
+<button class="tombol-bot" type="button" id="tombolBot" aria-label="Tanya Bot Svarna"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Tanya Bot Svarna</button>
+<aside id="panelBot" aria-label="Tanya Bot Svarna" aria-hidden="true">
+  <div class="pb-kepala"><div class="pb-judul">Tanya Bot Svarna<small id="pbSiapa">AI Svarna</small></div>
+    <button class="pb-ikon" type="button" id="pbBaru" title="Percakapan baru">&#8635;</button>
+    <button class="pb-ikon" type="button" id="pbKeluar" title="Keluar dari akun chat" hidden>&#9099;</button>
+    <button class="pb-ikon" type="button" id="pbTutup" title="Tutup">&#10005;</button></div>
+  <div class="pb-isi" id="pbIsi"></div>
+  <div class="pb-bawah" id="pbBawah" hidden><form class="pb-kotak" id="pbForm">
+    <textarea id="pbTeks" rows="2" placeholder="Tanya apa saja tentang Svarna Dipa..."></textarea>
+    <button class="pb-kirim" id="pbKirim" type="submit" title="Kirim">&#8593;</button></form></div>
+</aside>
+<script>
+(() => {
+  const API = "https://svarna5s-mac-mini.tail7a15d8.ts.net", HTTP = "http://100.98.122.77:8791", KUNCI = "tanya-bot-svarna";
+  const $ = (i) => document.getElementById(i), isi = $("pbIsi");
+  let sesi = null, riwayat = [], sibuk = false, pakaiHistori = true;
+  try { sesi = JSON.parse(sessionStorage.getItem(KUNCI) || "null"); } catch (e) { sesi = null; }
+  try { localStorage.removeItem(KUNCI); } catch (e) {}        // token versi lama (localStorage) dibuang
+  const simpanSesi = (s) => { sesi = s; try { s ? sessionStorage.setItem(KUNCI, JSON.stringify(s)) : sessionStorage.removeItem(KUNCI); } catch (e) {} };
+  // Masuk latar (Joe 29 Okt 22.17): sandi modul yang sudah benar dipakai untuk masuk ke Chat AI Svarna, jadi panel tidak
+  // minta masuk lagi. Sandi hanya di memori halaman ini (untuk masuk ulang bila token habis); tidak disimpan, tidak dicatat.
+  let latar = null, janjiLatar = null, takTerjangkau = false, khususTailscale = "";
+  function masukLatar() {
+    if (!API || !latar) return Promise.resolve(false);
+    return janjiLatar = janjiLatar || (async () => {
+      try { const r = await fetch(API + "/api/masuk", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(latar) });
+        const j = await r.json().catch(() => ({}));
+        takTerjangkau = false; khususTailscale = (r.status === 403 || r.status === 423) ? (j.galat || "") : "";
+        if (r.ok && j.token) { simpanSesi(j); return true; }
+        if (r.status === 401) latar = null;       // akun/sandi tidak diterima layanan chat: pakai layar MASUK
+      } catch (e) { takTerjangkau = true; }       // layanan chat tak terjangkau (internet putus / Mac mati)
+      return false;
+    })().finally(() => { janjiLatar = null; });
+  }
+  window.tanyaBotMasuk = (akun, sandi) => { latar = { akun, sandi };
+    if (!sesi || sesi.akun !== akun) masukLatar().then((ok) => { if (ok && document.body.classList.contains("panel-bot-buka")) layar(); }); };
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const md = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").split(/\n{2,}/).map((p) => "<p>" + p.replace(/\n/g, "<br>") + "</p>").join("");
+  const tambah = (kelas, html) => { const d = document.createElement("div"); d.className = kelas; d.innerHTML = html; isi.append(d); isi.scrollTop = isi.scrollHeight; return d; };
+  function layar() {
+    isi.innerHTML = ""; $("pbBawah").hidden = true; $("pbKeluar").hidden = !sesi;
+    if (!API) {                       // belum ada alamat https: buka chat di jendela kecil (perangkat Tailscale)
+      isi.innerHTML = '<div class="pb-kosong"><b>AI Svarna</b>Chat di dalam panel aktif setelah alamat aman (https) layanan chat tersedia.</div>' +
+        '<button class="pb-tombol" type="button" id="pbJendela">Buka chat</button><div class="pb-ket">Membuka jendela chat kecil di kanan layar. Hanya dari perangkat yang tersambung Tailscale.</div>';
+      $("pbJendela").onclick = () => { const w = 400, l = (screen.availLeft || 0) + screen.availWidth - w;
+        window.open(HTTP, "tanyaBotSvarna", "popup,width=" + w + ",height=" + screen.availHeight + ",left=" + l + ",top=0"); };
+      return;
+    }
+    if (!sesi && takTerjangkau) {      // layar MASUK pasti gagal: beri tahu sebabnya
+      isi.innerHTML = '<div class="pb-kosong"><b>Belum tersambung</b>Tanya Bot Svarna sedang tidak bisa dihubungi. ' +
+        'Periksa sambungan internet, lalu tekan Coba lagi.</div><button class="pb-tombol" type="button" id="pbUlang">Coba lagi</button>';
+      $("pbUlang").onclick = async () => { takTerjangkau = false; if (latar) await masukLatar(); layar(); };
+      return;
+    }
+    if (!sesi && khususTailscale) {    // akun penting dari internet publik: hanya boleh lewat Tailscale (server 403)
+      isi.innerHTML = '<div class="pb-kosong"><b>Belum tersambung</b>' + esc(khususTailscale) + '</div>' +
+        '<button class="pb-tombol" type="button" id="pbUlang">Coba lagi</button>';
+      $("pbUlang").onclick = async () => { khususTailscale = ""; if (latar) await masukLatar(); layar(); };
+      return;
+    }
+    if (!sesi) {                       // tanpa form masuk (Joe 30 Okt): masuk hanya lewat sandi modul
+      isi.innerHTML = '<div class="pb-kosong"><b>Belum tersambung</b>Sesi Tanya Bot sudah habis. ' +
+        'Muat ulang halaman, lalu masukkan sandi modul lagi.</div><button class="pb-tombol" type="button" id="pbMuat">Muat ulang</button>';
+      $("pbMuat").onclick = () => location.reload();
+      return;
+    }
+    $("pbSiapa").textContent = (sesi.nama || "") + (sesi.ai ? " · " + sesi.ai : "");
+    $("pbBawah").hidden = false;
+    if (!riwayat.length) { tambah("pb-kosong", "<b>" + esc(sesi.ai || "AI Svarna") + "</b>Ada yang bisa dibantu?<br>Bot ikut membaca layar yang sedang dibuka."); if (pakaiHistori) muatHistori(); }
+    else for (const m of riwayat) tambah(m.dari === "saya" ? "pb-saya" : "pb-ai", m.dari === "saya" ? esc(m.teks) : md(m.teks));
+    $("pbTeks").focus();
+  }
+  // Histori tanya-jawab dari layanan chat (POST /api/histori; peran joe melihat semua akun, lainnya hanya miliknya).
+  async function muatHistori() {
+    try { const r = await fetch(API + "/api/histori", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sesi.token },
+        body: JSON.stringify({ batas: 50 }) });
+      if (r.status === 401) { simpanSesi(null); if (await masukLatar()) return muatHistori(); layar(); return; }
+      if (!r.ok) return;              // layanan versi lama (belum ada /api/histori): panel tetap jalan tanpa histori
+      const daftar = ((await r.json().catch(() => ({}))).histori || []).filter((h) => h.status === "ok" && h.tanya);
+      if (!daftar.length || riwayat.length || sibuk) return;
+      isi.innerHTML = ""; let hari = "";
+      for (const h of daftar) {
+        const w = String(h.waktu || ""), tgl = w.slice(0, 10);
+        if (tgl && tgl !== hari) { hari = tgl; tambah("pb-waktu", esc(tgl)); }
+        const siapa = h.akun && h.akun !== sesi.akun ? "<b>" + esc(h.akun) + "</b> · " : "";
+        tambah("pb-saya", esc(h.tanya)); tambah("pb-ai", md(h.jawab || "") + '<div class="pb-ket" style="text-align:left;margin-top:4px">' + siapa + esc(w.slice(11, 16)) + "</div>");
+      }
+      tambah("pb-garis", "Percakapan baru di bawah ini");
+    } catch (e) { /* histori gagal dimuat: obrolan baru tetap bisa */ }
+  }
+  // Layar yang sedang dibuka penanya (Joe 30 Okt): filter terpilih + teks yang tampil, tanpa panel chat dan layar sandi.
+  // Diambil saat tombol kirim ditekan supaya selalu yang terbaru. Pilihan dropdown disembunyikan sebentar saat dibaca
+  // supaya yang terkirim hanya nilai terpilih, bukan seluruh daftar opsi.
+  function bacaLayar() {
+    const lewati = new Set(["panelBot", "gerbang", "tombolBot", "pita-isian", "masuk", "kabar", "pitaBaru"]);
+    const bagian = [...document.body.children].filter((el) => !lewati.has(el.id) && !/^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT)$/.test(el.tagName));
+    const filter = [];
+    for (const s of document.querySelectorAll("select")) {
+      if (s.closest("#panelBot, #gerbang") || !s.offsetParent) continue;
+      const label = (s.labels && s.labels[0] && s.labels[0].innerText) || s.getAttribute("aria-label") || s.name || s.id || "Pilihan";
+      const pilih = s.selectedOptions[0];
+      filter.push(label.trim() + ": " + (pilih ? pilih.text.trim() : s.value));
+    }
+    const pilihan = [...document.querySelectorAll("select")].filter((s) => !s.closest("#panelBot"));
+    const semula = pilihan.map((s) => s.style.display);
+    pilihan.forEach((s) => { s.style.display = "none"; });
+    let isiLayar = "";
+    try { isiLayar = bagian.map((el) => el.innerText || "").join("\n").replace(/\n{3,}/g, "\n\n").trim(); }
+    finally { pilihan.forEach((s, i) => { s.style.display = semula[i]; }); }
+    const judul = [...document.querySelectorAll("h1, h2")].find((h) => !h.closest("#panelBot, #gerbang") && h.offsetParent);
+    return { modul: document.title || "", judul: judul ? judul.innerText.trim() : "", alamat: location.pathname + location.hash,
+      teks: ((filter.length ? "Filter terpilih:\n" + filter.join("\n") + "\n\n" : "") + isiLayar).slice(0, 40000) };
+  }
+  async function kirim(ev) {
+    ev.preventDefault(); const teks = $("pbTeks").value.trim(); if (!teks || sibuk) return;
+    if (!riwayat.length && !isi.querySelector(".pb-garis")) isi.innerHTML = "";
+    sibuk = true; $("pbKirim").disabled = true; $("pbTeks").value = "";
+    tambah("pb-saya", esc(teks)); const tunggu = tambah("pb-ai pb-tunggu", "Sedang berpikir...");
+    const tanya = () => fetch(API + "/api/chat", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sesi.token },
+        body: JSON.stringify({ pesan: teks, riwayat, layar: bacaLayar() }) });
+    try { let r = await tanya();
+      if (r.status === 401) { simpanSesi(null); if (await masukLatar()) r = await tanya(); }
+      if (r.status === 401) { simpanSesi(null); tunggu.remove(); layar(); return; }
+      const j = await r.json().catch(() => ({}));
+      tunggu.classList.remove("pb-tunggu");
+      if (j.status === "ok") { tunggu.innerHTML = md(j.jawab || ""); riwayat.push({ dari: "saya", teks }, { dari: "ai", teks: j.jawab || "" }); }
+      else tunggu.innerHTML = '<span class="pb-galat">' + esc(j.jawab || j.galat || (j.status === "kuota" ? "Kapasitas sedang penuh, coba lagi nanti." : "Bot belum bisa menjawab, coba lagi.")) + "</span>";
+    } catch (e) { tunggu.innerHTML = '<span class="pb-galat">Belum tersambung. Periksa sambungan internet, lalu kirim ulang.</span>'; }
+    finally { sibuk = false; $("pbKirim").disabled = false; }
+  }
+  const buka = (y) => { document.body.classList.toggle("panel-bot-buka", y); $("panelBot").setAttribute("aria-hidden", y ? "false" : "true"); if (y) (janjiLatar || Promise.resolve()).then(layar); };
+  $("tombolBot").onclick = () => buka(true);
+  $("pbTutup").onclick = () => buka(false);
+  $("pbBaru").onclick = () => { riwayat = []; pakaiHistori = false; layar(); pakaiHistori = true; };
+  $("pbKeluar").onclick = async () => { if (sesi && API) try { await fetch(API + "/api/keluar", { method: "POST",
+      headers: { "Authorization": "Bearer " + sesi.token, "Content-Type": "application/json" }, body: "{}" }); } catch (e) {}
+    latar = null; simpanSesi(null); riwayat = []; layar(); };
+  $("pbForm").onsubmit = kirim;
+  $("pbTeks").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("pbForm").requestSubmit(); } });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("panel-bot-buka")) buka(false); });
+})();
+</script>
+<style>
+/* Tanya Bot Svarna di Panel Gudang (BEN 30 Okt 2026): tampil setelah sandi benar; tombol bawaan halaman ini tidak
+   ikut mengubah tombol di dalam panel */
+#tombolBot { display: none; }
+body.bot-siap:not(.panel-bot-buka) #tombolBot { display: flex; }
+#panelBot button { text-transform: none; letter-spacing: normal; }
+#panelBot .pb-kirim { padding: 0; }
+#panelBot .pb-kirim:hover { background: #6fb3d2; color: #11171d; }
+#panelBot button.pb-ikon:hover { background: none; }
+#panelBot .pb-tombol { text-transform: uppercase; letter-spacing: .1em; }
+</style>
+</body>
+</html>
